@@ -21,15 +21,9 @@ class SimpleResNet101(nn.Module):
 
         self.network = resnet101(pretrained=True)
 
-        # loss
-        self.RCNN_loss_cls = 0
-        self.RCNN_loss_bbox = 0
-
         # change last layer of ResNet pretrained
         num_features = self.network.fc.in_features
         self.network.fc = nn.Linear(in_features=num_features, out_features=self.n_classes)
-
-
 
     def forward(self, x):  # pylint: disable=arguments-differ
         return self.network.forward(x)
