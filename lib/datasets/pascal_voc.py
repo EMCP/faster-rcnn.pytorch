@@ -29,14 +29,6 @@ from .voc_eval import voc_eval
 # >>>> obsolete, because it depends on sth outside of this project
 from model.utils.config import cfg
 
-try:
-    xrange  # Python 2
-except NameError:
-    xrange = range  # Python 3
-
-
-# <<<< obsolete
-
 
 class pascal_voc(imdb):
     def __init__(self, image_set, year, devkit_path=None):
@@ -52,7 +44,7 @@ class pascal_voc(imdb):
                          'cow', 'diningtable', 'dog', 'horse',
                          'motorbike', 'person', 'pottedplant',
                          'sheep', 'sofa', 'train', 'tvmonitor')
-        self._class_to_ind = dict(zip(self.classes, xrange(self.num_classes)))
+        self._class_to_ind = dict(zip(self.classes, range(self.num_classes)))
         self._image_ext = '.jpg'
         self._image_index = self._load_image_set_index()
         # Default to roidb handler
@@ -193,7 +185,7 @@ class pascal_voc(imdb):
         raw_data = sio.loadmat(filename)['boxes'].ravel()
 
         box_list = []
-        for i in xrange(raw_data.shape[0]):
+        for i in range(raw_data.shape[0]):
             boxes = raw_data[i][:, (1, 0, 3, 2)] - 1
             keep = ds_utils.unique_boxes(boxes)
             boxes = boxes[keep, :]
@@ -282,7 +274,7 @@ class pascal_voc(imdb):
                     if dets == []:
                         continue
                     # the VOCdevkit expects 1-based indices
-                    for k in xrange(dets.shape[0]):
+                    for k in range(dets.shape[0]):
                         f.write('{:s} {:.3f} {:.1f} {:.1f} {:.1f} {:.1f}\n'.
                                 format(index, dets[k, -1],
                                        dets[k, 0] + 1, dets[k, 1] + 1,

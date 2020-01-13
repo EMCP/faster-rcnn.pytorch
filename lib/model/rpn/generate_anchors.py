@@ -36,11 +36,6 @@ import pdb
 #       [ -79., -167.,   96.,  184.],
 #       [-167., -343.,  184.,  360.]])
 
-try:
-    xrange  # Python 2
-except NameError:
-    xrange = range  # Python 3
-
 
 def generate_anchors(base_size=16, ratios=[0.5, 1, 2],
                      scales=2 ** np.arange(3, 6)):
@@ -52,7 +47,7 @@ def generate_anchors(base_size=16, ratios=[0.5, 1, 2],
     base_anchor = np.array([1, 1, base_size, base_size]) - 1
     ratio_anchors = _ratio_enum(base_anchor, ratios)
     anchors = np.vstack([_scale_enum(ratio_anchors[i, :], scales)
-                         for i in xrange(ratio_anchors.shape[0])])
+                         for i in range(ratio_anchors.shape[0])])
     return anchors
 
 

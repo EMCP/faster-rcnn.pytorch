@@ -18,11 +18,6 @@ import subprocess
 import pdb
 import pickle
 
-try:
-    xrange  # Python 2
-except NameError:
-    xrange = range  # Python 3
-
 
 class imagenet(imdb):
     def __init__(self, image_set, devkit_path, data_path):
@@ -38,19 +33,19 @@ class imagenet(imdb):
         self._classes = ('__background__',)
         self._wnid = (0,)
 
-        for i in xrange(200):
+        for i in range(200):
             self._classes_image = self._classes_image + (synsets_image['synsets'][0][i][2][0],)
             self._wnid_image = self._wnid_image + (synsets_image['synsets'][0][i][1][0],)
 
-        for i in xrange(30):
+        for i in range(30):
             self._classes = self._classes + (synsets_video['synsets'][0][i][2][0],)
             self._wnid = self._wnid + (synsets_video['synsets'][0][i][1][0],)
 
-        self._wnid_to_ind_image = dict(zip(self._wnid_image, xrange(201)))
-        self._class_to_ind_image = dict(zip(self._classes_image, xrange(201)))
+        self._wnid_to_ind_image = dict(zip(self._wnid_image, range(201)))
+        self._class_to_ind_image = dict(zip(self._classes_image, range(201)))
 
-        self._wnid_to_ind = dict(zip(self._wnid, xrange(31)))
-        self._class_to_ind = dict(zip(self._classes, xrange(31)))
+        self._wnid_to_ind = dict(zip(self._wnid, range(31)))
+        self._class_to_ind = dict(zip(self._classes, range(31)))
 
         # check for valid intersection between video and image classes
         self._valid_image_flag = [0] * 201
@@ -213,6 +208,6 @@ class imagenet(imdb):
 if __name__ == '__main__':
     d = datasets.imagenet('val', '')
     res = d.roidb
-    from IPython import embed;
+    from IPython import embed
 
     embed()

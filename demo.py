@@ -1,11 +1,5 @@
-# --------------------------------------------------------
-# Tensorflow Faster R-CNN
-# Licensed under The MIT License [see LICENSE for details]
-# Written by Jiasen Lu, Jianwei Yang, based on code from Ross Girshick
-# --------------------------------------------------------
 from __future__ import absolute_import
 from __future__ import division
-from __future__ import print_function
 
 import _init_paths
 import os
@@ -36,11 +30,6 @@ from model.utils.blob import im_list_to_blob
 from model.faster_rcnn.vgg16 import vgg16
 from model.faster_rcnn.resnet import resnet
 import pdb
-
-try:
-    xrange  # Python 2
-except NameError:
-    xrange = range  # Python 3
 
 
 def parse_args():
@@ -175,7 +164,7 @@ if __name__ == '__main__':
                                  'motorbike', 'person', 'pottedplant',
                                  'sheep', 'sofa', 'train', 'tvmonitor'])
 
-    # initilize the network here.
+    # initialize the network here.
     if args.net == 'vgg16':
         fasterRCNN = vgg16(pascal_classes, pretrained=False, class_agnostic=args.class_agnostic)
     elif args.net == 'res101':
@@ -334,7 +323,7 @@ if __name__ == '__main__':
         misc_tic = time.time()
         if vis:
             im2show = np.copy(im)
-        for j in xrange(1, len(pascal_classes)):
+        for j in range(1, len(pascal_classes)):
             inds = torch.nonzero(scores[:, j] > thresh).view(-1)
             # if there is det
             if inds.numel() > 0:
