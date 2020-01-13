@@ -1,5 +1,5 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
-#!/usr/bin/env python
+# !/usr/bin/env python
 
 import glob
 import os

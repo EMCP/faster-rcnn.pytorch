@@ -13,6 +13,7 @@ class SimpleResNet101(nn.Module):
     See https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
     We utilize the pre-trained 101 layer version by default.
     """
+
     def __init__(self, classes, pretrained, class_agnostic):
         super(SimpleResNet101, self).__init__()
         self.classes = classes

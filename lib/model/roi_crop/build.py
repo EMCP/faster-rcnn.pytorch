@@ -3,7 +3,7 @@ import os
 import torch
 from torch.utils.ffi import create_extension
 
-#this_file = os.path.dirname(__file__)
+# this_file = os.path.dirname(__file__)
 
 sources = ['src/roi_crop.c']
 headers = ['src/roi_crop.h']
