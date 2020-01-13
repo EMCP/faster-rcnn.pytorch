@@ -7,3 +7,4 @@ easydict
 matplotlib
 pyyaml
 tensorboardX
+pytorch==1.3.0
