@@ -26,27 +26,34 @@ class resnet_torchvision(_fasterRCNN):
         self.RCNN_top = nn.Sequential(resnet.layer4)
 
         self.RCNN_cls_score = nn.Linear(2048, self.n_classes)
+
         if self.class_agnostic:
             self.RCNN_bbox_pred = nn.Linear(2048, 4)
         else:
             self.RCNN_bbox_pred = nn.Linear(2048, 4 * self.n_classes)
 
         # Fix blocks
-        for p in self.RCNN_base[0].parameters(): p.requires_grad = False
-        for p in self.RCNN_base[1].parameters(): p.requires_grad = False
+        for p in self.RCNN_base[0].parameters():
+            p.requires_grad = False
+        for p in self.RCNN_base[1].parameters():
+            p.requires_grad = False
 
         assert (0 <= cfg.RESNET.FIXED_BLOCKS < 4)
         if cfg.RESNET.FIXED_BLOCKS >= 3:
-            for p in self.RCNN_base[6].parameters(): p.requires_grad = False
+            for p in self.RCNN_base[6].parameters():
+                p.requires_grad = False
         if cfg.RESNET.FIXED_BLOCKS >= 2:
-            for p in self.RCNN_base[5].parameters(): p.requires_grad = False
+            for p in self.RCNN_base[5].parameters():
+                p.requires_grad = False
         if cfg.RESNET.FIXED_BLOCKS >= 1:
-            for p in self.RCNN_base[4].parameters(): p.requires_grad = False
+            for p in self.RCNN_base[4].parameters():
+                p.requires_grad = False
 
         def set_bn_fix(m):
             classname = m.__class__.__name__
             if classname.find('BatchNorm') != -1:
-                for p in m.parameters(): p.requires_grad = False
+                for p in m.parameters():
+                    p.requires_grad = False
 
         self.RCNN_base.apply(set_bn_fix)
         self.RCNN_top.apply(set_bn_fix)

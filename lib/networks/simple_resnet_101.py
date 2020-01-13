@@ -4,9 +4,6 @@ simple_resnet.py is a wrapper around the PyTorch Vision provided ResNet101 neura
 import torch.nn as nn
 from torchvision.models.resnet import resnet101
 
-from model.utils.config import cfg
-from model.faster_rcnn.faster_rcnn import _fasterRCNN
-
 
 class SimpleResNet101(nn.Module):
     """
