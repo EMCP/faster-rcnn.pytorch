@@ -2,9 +2,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import _init_paths
 import os
-import sys
 import numpy as np
 import argparse
 import pprint
@@ -14,21 +12,18 @@ import time
 import torch
 from torch.autograd import Variable
 import torch.nn as nn
-import torch.optim as optim
 
-import torchvision.transforms as transforms
 from torch.utils.data.sampler import Sampler
 
 
 from roi_data_layer.roidb import combined_roidb
 from roi_data_layer.roibatchLoader import roibatchLoader
-from model.utils.config import cfg, cfg_from_file, cfg_from_list, get_output_dir
-from model.utils.net_utils import weights_normal_init, save_net, load_net, \
-      adjust_learning_rate, save_checkpoint, clip_gradient
+from model.utils.config import cfg, cfg_from_file, cfg_from_list
+from model.utils.net_utils import adjust_learning_rate, save_checkpoint, clip_gradient
 
 from model.faster_rcnn.vgg16 import vgg16
 from model.faster_rcnn.resnet import resnet
-from model.faster_rcnn.simple_resnet_101 import SimpleResNet101
+from model.faster_rcnn.resnet_torchvision import resnet_torchvision
 
 
 def parse_args():
@@ -235,8 +230,7 @@ if __name__ == '__main__':
   if args.net == 'vgg16':
     fasterRCNN = vgg16(imdb.classes, pretrained=True, class_agnostic=args.class_agnostic)
   elif args.net == 'res101':
-#    fasterRCNN = resnet(imdb.classes, 101, pretrained=True, class_agnostic=args.class_agnostic)
-    fasterRCNN = SimpleResNet101(imdb.classes, class_agnostic=args.class_agnostic)
+    fasterRCNN = resnet_torchvision(imdb.classes, pretrained=True, class_agnostic=args.class_agnostic)
   elif args.net == 'res50':
     fasterRCNN = resnet(imdb.classes, 50, pretrained=True, class_agnostic=args.class_agnostic)
   elif args.net == 'res152':
