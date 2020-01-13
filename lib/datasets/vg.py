@@ -20,10 +20,6 @@ from .vg_eval import vg_eval
 from model.utils.config import cfg
 import pickle
 import pdb
-try:
-    xrange          # Python 2
-except NameError:
-    xrange = range  # Python 3
 
 
 class vg(imdb):
@@ -326,7 +322,7 @@ class vg(imdb):
                     if dets == []:
                         continue
                     # the VOCdevkit expects 1-based indices
-                    for k in xrange(dets.shape[0]):
+                    for k in range(dets.shape[0]):
                         f.write('{:s} {:.3f} {:.1f} {:.1f} {:.1f} {:.1f}\n'.
                                 format(str(index), dets[k, -1],
                                        dets[k, 0] + 1, dets[k, 1] + 1,
