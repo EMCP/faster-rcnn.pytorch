@@ -3,9 +3,9 @@
 ## Introduction
 
 
-This project is based on a *faster* pytorch implementation of faster R-CNN,which needed updating.  
+This project is based on a *faster* pytorch implementation of faster R-CNN, which needed updating.  
 
-* [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch), developed based on Pycaffe + Numpy
+* [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch), developed based on PyTorch v0.4.0 and v1.0
 
 During our implementing, we referred the above implementation. However, our implementation has several unique and new features compared with the above implementation:
 
