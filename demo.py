@@ -9,10 +9,10 @@ import torch
 from torch.autograd import Variable
 from torchvision.ops import nms
 
-from model.faster_rcnn.resnet import resnet_backbone
-from model.rpn.bbox_transform import bbox_transform_inv, clip_boxes
-from roi_data_layer.minibatch import _get_image_blob_demoing
-from utils.net_utils import vis_detections
+from lib.model.faster_rcnn.resnet import resnet_backbone
+from lib.model.rpn import bbox_transform_inv, clip_boxes
+from lib.roi_data_layer import _get_image_blob_demoing
+from lib.model.utils.net_utils import vis_detections
 
 
 def demo(data_conf, model_conf, **kwargs):
@@ -234,10 +234,10 @@ def demo(data_conf, model_conf, **kwargs):
 if __name__ == "__main__":
     import json
 
-    with open("./dataset.json") as f:
+    with open("cfgs/dataset.json") as f:
         config_json = json.load(f)
 
-    with open("./config.json") as fp:
+    with open("cfgs/config.json") as fp:
         model_conf = json.load(fp)
 
     demo(data_conf=config_json, model_conf=model_conf)

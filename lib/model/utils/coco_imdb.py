@@ -1,7 +1,7 @@
 from __future__ import division
 
-from utils.imdb import imdb
-from utils import ds_utils
+from lib.model.utils import imdb
+from lib.model.utils import ds_utils
 import os
 import numpy as np
 import scipy.sparse

@@ -4,7 +4,7 @@ import numpy as np
 import numpy.random as npr
 import cv2
 
-from utils.blob import prep_im_for_blob, im_list_to_blob
+from lib.model.utils.blob import prep_im_for_blob, im_list_to_blob
 
 
 def get_minibatch(model_conf, roidb):

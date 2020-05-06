@@ -1,5 +1,5 @@
 from __future__ import division
-from model.faster_rcnn.faster_rcnn import _fasterRCNN
+from lib.model.faster_rcnn.faster_rcnn import _fasterRCNN
 import torch
 import torch.nn as nn
 import math

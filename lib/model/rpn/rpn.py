@@ -6,7 +6,7 @@ from torch.autograd import Variable
 
 from .proposal_layer import _ProposalLayer
 from .anchor_target_layer import _AnchorTargetLayer
-from utils.net_utils import _smooth_l1_loss
+from lib.model.utils.net_utils import _smooth_l1_loss
 
 
 class _RPN(nn.Module):

@@ -5,7 +5,7 @@ import os
 import PIL
 import numpy as np
 import scipy.sparse
-from model.rpn.bbox_transform import bbox_overlaps
+from lib.model.rpn import bbox_overlaps
 
 
 class imdb(object):

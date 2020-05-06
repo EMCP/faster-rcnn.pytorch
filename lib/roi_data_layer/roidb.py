@@ -3,7 +3,7 @@ from __future__ import division
 
 import numpy as np
 import PIL
-from utils import coco_imdb
+from lib.model.utils import coco_imdb
 
 
 def prepare_roidb(imdb):

@@ -2,7 +2,7 @@ from __future__ import division
 
 import torch.utils.data as data
 import torch
-from roi_data_layer.minibatch import get_minibatch
+from lib.roi_data_layer import get_minibatch
 import numpy as np
 
 

@@ -7,11 +7,11 @@ import torch
 from torch import nn
 from torch.autograd import Variable
 
-from model.faster_rcnn.resnet import resnet_backbone
-from model.fasterrcnnsampler import FasterRCNNSampler
-from roi_data_layer.roibatchLoader import roibatchLoader
-from roi_data_layer.roidb import combined_roidb
-from utils.net_utils import adjust_learning_rate, save_checkpoint, loss_is_improved
+from lib.model.faster_rcnn.resnet import resnet_backbone
+from lib.model import FasterRCNNSampler
+from lib.roi_data_layer import roibatchLoader
+from lib.roi_data_layer import combined_roidb
+from lib.model.utils.net_utils import adjust_learning_rate, save_checkpoint, loss_is_improved
 
 
 def train(data_conf, model_conf, **kwargs):
@@ -244,10 +244,10 @@ def train(data_conf, model_conf, **kwargs):
 if __name__ == "__main__":
     import json
 
-    with open("./dataset.json") as f:
+    with open("cfgs/dataset.json") as f:
         config_json = json.load(f)
 
-    with open("./config.json") as fp:
+    with open("cfgs/config.json") as fp:
         model_conf = json.load(fp)
 
     train(data_conf=config_json, model_conf=model_conf)
