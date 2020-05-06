@@ -1,0 +1,18 @@
+{
+  "save_dir": "/media/save_your_models_here/models",
+  "detections_dir": "/media/save_your_detections_here/detections",
+  "cache_dir": "/media/some_path_to/tmp",
+  "image_pool_path": "/media/root_of_your_datasets/path",
+  "image_data_sub_dir": "images/datasets/some_dataset_path",
+  "image_data_training_id": "coco_training_dataset_id",
+  "image_data_testing_id": "coco_testing_dataset_id",
+  "demo_model_dir": "name_of_sub_dir_to_save_model",
+  "demo_in_image_dir": "/media/path_to_models_target_images",
+  "demo_out_image_dir": "/media/path_to_save_models_target_results",
+  "webcam_data_id_num": -1,
+  "classes_available": ["__background__",
+                        "custom_class_1",
+                        "custom_class_2",
+                        "custom_class_3",
+                        "custom_class_4"]
+}

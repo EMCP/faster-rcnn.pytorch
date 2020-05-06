@@ -234,10 +234,10 @@ def demo(data_conf, model_conf, **kwargs):
 if __name__ == "__main__":
     import json
 
-    with open("../dataset.json") as f:
+    with open("./dataset.json") as f:
         config_json = json.load(f)
 
-    with open("../config.json") as fp:
+    with open("./config.json") as fp:
         model_conf = json.load(fp)
 
     demo(data_conf=config_json, model_conf=model_conf)
